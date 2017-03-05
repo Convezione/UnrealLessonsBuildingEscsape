@@ -22,7 +22,18 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-private:
+	private:
 	float reach;
 	
+	UPhysicsHandleComponent* collisionHandler = nullptr;
+
+	UInputComponent* inputHandler = nullptr;
+	void Grab();
+	void Release();
+
+	void FindAttachedPhysicsComponent();
+	void SetupInputHandler();
+
+	FHitResult GetFirstPhysicsBodyInReach();
+
 };

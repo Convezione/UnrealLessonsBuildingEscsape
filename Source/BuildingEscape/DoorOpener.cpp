@@ -28,7 +28,6 @@ void UDoorOpener::BeginPlay()
 }
 
 void UDoorOpener::OpenDoor() {
-
 	//owner->SetActorRotation(FRotator(0.0f, openAngle, 0.0f));
 	onOpenRequest.Broadcast();
 }
@@ -60,5 +59,10 @@ float UDoorOpener::GetTotalMassOfActorsOnPlate() {
 		totalMass += actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
 	}
 	return totalMass;
+}
+
+float UDoorOpener::getTargetAngle()
+{
+	return targetRotation;
 }
 
